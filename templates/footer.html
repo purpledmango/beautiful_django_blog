@@ -1,0 +1,84 @@
+<footer>
+   
+
+      <div class="footer__tagline container center">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    
+    <hr class="white-text">
+ 
+
+    <div class="footer__branding row">
+      <div class="col s12 m6 l4">
+        
+        {% if error %}
+        <h3>{{error}}</h5>
+        {% else %}
+    	<h5>Recive a note from us directly to your inbox</h5>
+            <form method="post" class="white-text newsletter">
+              {% csrf_token %}
+              <input class="white-text" type="text" name="sub-name" placeholder="Your Name">
+              <br>
+              <input class="white-text" type="email" name="sub-email" placeholder="your@mail.com">
+             
+                <button><i class='bx bxs-chevron-right'></i></button>
+              
+            </form>
+        {% endif %}
+        
+        <div class="socials">
+          <i class='bx bxl-twitter'></i>
+          <i class='bx bxl-instagram' ></i>
+          <i class='bx bxl-pinterest' ></i>
+          <i class='bx bxl-facebook-square' ></i>
+        </div>
+      </div>
+
+      <div class=" footer__tags col s12 m6 l4">
+        <div class="row">
+          <div class="col s4">
+            STYLE
+          </div>
+          <div class="col s4">
+            FASHION
+          </div>
+          <div class="col s4">
+            STYLE
+          </div>
+          <div class="col s4">
+            DESIGN
+          </div>
+           <div class="col s4">
+            DESIGN
+          </div>
+           <div class="col s4">
+            DESIGN
+          </div>
+           <div class="col s4">
+            DESIGN
+          </div>
+           <div class="col s4">
+            DESIGN
+          </div>
+           <div class="col s4">
+            DESIGN
+          </div>
+        </div>
+      </div>
+
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+
+  </footer>

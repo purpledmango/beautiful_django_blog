@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block mainBody %}
+
+<!-- Main body -->
+
+<section class="aescthetic">
+    
+    <div class="row center">
+
+      <div class="col s4 post__details">
+        {{article.created_at|date:"F, d, Y"}}
+
+      </div> 
+
+      <div class="col s4 post__details">
+        {{article.tag}}
+      </div>
+      
+      <div class="col s4 post__details">
+        {{article.author_name}}
+      </div>
+    </div>
+
+    <div class="container body__area">
+      <h1 class="center"> {{aticle.title}} </h1>
+      <p>
+      {{article.body|safe}}
+      </p>
+
+    </div>
+
+    <div class="container center ">
+
+      <a href="#" class="button">Continue Reading</a>
+
+      <a href="#" class="button">Continue Reading</a>
+
+      
+    </div>
+</section>
+
+<!-- End main body -->
+
+{% endblock %}

@@ -1,0 +1,24 @@
+!<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Create Post</title>
+</head>
+<body>
+
+	<form method="post">
+		{% csrf_token %}
+		{{form.as_p}}
+		<button type="submit">Post</button>
+
+
+	</form>
+		{% if posts %}
+			{% for post in posts %}
+				{{post}}
+			{% endfor %}
+		{% endif %}
+
+</body>
+</html>
