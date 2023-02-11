@@ -1,4 +1,5 @@
 from django.db import models
+from auditlog.registry import auditlog
 from django.contrib.auth.models import User
 from autoslug import AutoSlugField
 from imagekit.models import ImageSpecField
@@ -6,12 +7,13 @@ from imagekit.processors import ResizeToFill
 from tinymce.models import HTMLField
 
 
+
 class Tag(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, default= "")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
     def __str__(self):
         return self.name
 
@@ -34,7 +36,11 @@ class Blog(models.Model):
     related_articles = models.ManyToManyField("self", blank=True)
     tags = models.ManyToManyField(Tag)
     content_live = models.BooleanField(default = False)
-    
+    views = models.PositiveIntegerField(default=0)
+
+    def update_view_count(self):
+        self.view_count += 1
+        self.save()
 
     def __str__(self):
         return self.title
@@ -45,15 +51,31 @@ class Blog(models.Model):
     class Meta:
         verbose_name_plural = "Articles"
         verbose_name = "Article"
+        ordering = ['-created_at']
 
 
 class EmailList(models.Model):
     sub_name = models.CharField(max_length=255)
     sub_email = models.EmailField(max_length=255, unique=True)
-    
+
 
     def __str__(self):
         return self.sub_name
-
     class Meta:
         verbose_name_plural = "New Letter Subscribers"
+
+class Comment(models.Model):
+    name = models.CharField(max_length=100)
+    socail_url = models.CharField(max_length=500)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    post = models.ForeignKey(Blog, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.body
+
+
+
+
+auditlog.register(Blog)

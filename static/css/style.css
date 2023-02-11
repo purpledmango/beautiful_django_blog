@@ -21,17 +21,31 @@
 
 h1 h2 h3 h4 h5 h6{
 	font-family: var(--heading-font);
-}
+	}
+
+
 
 a{
 	text-decoration: none;
 	color: black;
 }
 
-.navbar{
-	background: white;
+
+hr{
+	border: solid 1px black;
+	width: 80%;
+	margin: auto;
+	
 }
 
+.navbar{
+	background: white;
+	padding: 0 3rem;
+}
+
+.nav__logo{
+	padding-top: 9px;
+}
 .menu__item a{
 	color: var(--primary-color-black);
 /*	text-transform: uppercase;*/
@@ -51,6 +65,9 @@ a{
 	display: flex;
 	justify-content: space-between;
 	line-height: 52px;
+}
+.seperator{
+	padding-bottom: 60px;
 }
 
 .menu__trigger{
@@ -72,7 +89,7 @@ a{
 }
 
 .article__image{
-	
+
 }
 
 .article__meta{
@@ -221,4 +238,6 @@ footer form button:hover{
 	font-family: var(--body-font);
 }
 
-
+.paginator{
+	padding: 20px 0;
+}
