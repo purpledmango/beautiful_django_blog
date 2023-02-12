@@ -23,22 +23,21 @@
 	        <div class="col s12 m12 l12">
 
 	            <div class="center">
-	              <img src="{{post.thumbnail.url}}" alt="{{post.title}}" class="card-img responsive-img">
+	              <a href="{% url 'article' post.slug %}"><img src="{{post.thumbnail.url}}" alt="{{post.title}}" class="card-img responsive-img"></a>
 	              <div class="center article__meta">
 	                <!-- <div class="tag"> FOOD</div> -->
 
 	                <div class="credits">
 	                  {{post.created_at|date:"F, d, Y"}} ● {{post.author_name}}
 	                </div>
-	                <h3 class="title">{{post.title}}</h2>
+	                <a><h3 class="title">{{post.title}}</h3></a>
 	                <div class="description">{{post.body|safe|slice:":255"}} ...</div>
 
 	                <div class="row hide-on-med-and-down">
 	                  
 	                    <!-- <div class="left">
 	                      <div class="comments"><span>96 </span>COMMENTS</div>
-	                    </div>
- -->
+	                    </div>-->
 	                      <div class="right">
 	                        <div>
 	                          <a href="{% url 'article' post.slug %}" class="button">Continue Reading</a>
