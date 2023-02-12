@@ -241,3 +241,17 @@ footer form button:hover{
 .paginator{
 	padding: 20px 0;
 }
+
+.about__us{
+	padding: 3rem 0;
+}
+
+.about__us p{
+	font-size: 2rem;
+	font-family: var(--body-font);
+}
+
+.about__us h1 h2 h3{
+	font-family: var(--heading-font);
+}
+

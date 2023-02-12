@@ -4,7 +4,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home Page </title>
+  <link rel="icon" href="{% static 'img/mroadn_fav.png' %}">
+
+  {% if title %}
+
+
+  <title> {{title}} </title>
+  <meta name="keywords" content="{{keywords}}">
+  <meta name="description" content="{{description}}">
+
+  {% else %}
+
+  <title> Mr. Oadn - Just on a Different Note </title>
+  <meta name="keywords" content="Mr-oadn, Mens-health, mroadn">
+  <meta name="description" content="Join our tiny community of people who provide personal care for one another, encouraging one another to be their best selves">
+
+  {% endif %}
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>

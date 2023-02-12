@@ -11,6 +11,8 @@ from tinymce.models import HTMLField
 class Tag(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, default= "")
+    mtag_description = models.TextField(blank=True)
+    mtag_keywords = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -39,7 +41,7 @@ class Blog(models.Model):
     views = models.PositiveIntegerField(default=0)
 
     def update_view_count(self):
-        self.view_count += 1
+        self.views += 1
         self.save()
 
     def __str__(self):
@@ -79,3 +81,5 @@ class Comment(models.Model):
 
 
 auditlog.register(Blog)
+auditlog.register(EmailList)
+auditlog.register(Tag)
