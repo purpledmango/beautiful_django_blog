@@ -230,12 +230,16 @@ footer form button:hover{
 	letter-spacing: 1px;
 }
 
-.body__area h1{
-	font-family: var(--heading-font);
+.body__area {
+	font-family: var(--body-font);
+}
+
+.body__area li{
+	font-size: 1.7rem;
+	text-decoration: underline;
 }
 .body__area p{
 	font-size: 1.75rem;
-	font-family: var(--body-font);
 }
 
 .paginator{

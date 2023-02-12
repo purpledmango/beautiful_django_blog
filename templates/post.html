@@ -21,7 +21,11 @@
       </div>
     </div>
 
+
     <div class="container body__area">
+      <div class="container center">
+        <img src="{{article.thumbnail.url}}" alt="{{article.thumbnail}}" class="responsive-img">
+      </div>
       <h1 class="center" style="padding-bottom: 2.65rem"> {{article.title}} </h1>
       <p>
       {{article.body|safe}}
