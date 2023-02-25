@@ -31,7 +31,7 @@
 	                  {{post.created_at|date:"F, d, Y"}} ● {{post.author_name}}
 	                </div>
 	                <a><h3 class="title">{{post.title}}</h3></a>
-	                <div class="description">{{post.body|safe|slice:":255"}} ...</div>
+	                <div class="description">{{post.meta_description|slice:":255"}} ...</div>
 
 	                <div class="row hide-on-med-and-down">
 	                  
@@ -60,12 +60,15 @@
 
 	          <!-- SMALLER CARDS -->
 	          <div class="row">
+	     
+	            {% for post in olderPosts %}
+
 	            <div class="col s12 m9 l4">
 	              <div class="padded center">
-	                <img src="img/img1.jpg" alt="" class="card-img responsive-img">
+	                <a href="{% url 'article' post.slug %}"><img src="{{post.thumbnail.url}}" alt="{{post.title}}" class="card-img responsive-img"></a>
 	                <div class="center article__meta">
 	                  <div class="tag"> FOOD</div>
-	                  <h3 class="title"> Have a Wonderful Weekend</h3>
+	                  <a href="{% url 'article' post.slug %}""><h3 class="title"> Have a Wonderful Weekend</h3></a>
 	                  <div class="description">12 links, including a lip-plumping balm that actually works and Tom Hank's two-ingredient cocktail.</div>
 
 	                  <div class="comments"><span>96 </span>COMMENTS</div>
@@ -74,62 +77,7 @@
 	            </div>
 
 
-	            <div class="col s12 m9 l4">
-	              <div class="padded center">
-	                <img src="img/img2.jpg" alt="" class="card-img responsive-img">
-	                <div class="center article__meta">
-	                  <div class="tag"> FOOD</div>
-	                  <h3 class="title"> Have a Wonderful Weekend</h3>
-	                  <div class="description">12 links, including a lip-plumping balm that actually works and Tom Hank's two-ingredient cocktail.</div>
-
-	                  <div class="comments"><span>96 </span>COMMENTS</div>
-	                </div>
-	              </div>
-	            </div>
-
-
-	            <div class="col s12 m9 l4">
-	              <div class="padded center">
-	                <img src="img/img1.jpg" alt="" class="card-img responsive-img">
-	                <div class="center article__meta">
-	                  <div class="tag"> FOOD</div>
-	                  <h3 class="title"> Have a Wonderful Weekend</h2>
-	                  <div class="description">12 links, including a lip-plumping balm that actually works and Tom Hank's two-ingredient cocktail.</div>
-
-	                  <div class="comments"><span>96 </span>COMMENTS</div>
-	                </div>
-	              </div>
-	            </div>
-
-
-	            <div class="col s12 m9 l4">
-	              <div class="padded center">
-	                <img src="img/img1.jpg" alt="" class="card-img responsive-img">
-	                <div class="center article__meta">
-	                  <div class="tag"> FOOD</div>
-	                  <h3 class="title"> Have a Wonderful Weekend</h2>
-	                  <div class="description">12 links, including a lip-plumping balm that actually works and Tom Hank's two-ingredient cocktail.</div>
-
-	                  <div class="comments"><span>96 </span>COMMENTS</div>
-	                </div>
-	              </div>
-
-	            </div>
-
-
-	            <div class="col s12 m9 l4">
-	              <div class="padded center">
-	                <img src="img/img1.jpg" alt="" class="card-img responsive-img">
-	                <div class="center article__meta">
-	                  <div class="tag"> FOOD</div>
-	                  <h3 class="title"> Have a Wonderful Weekend</h2>
-	                  <div class="description">12 links, including a lip-plumping balm that actually works and Tom Hank's two-ingredient cocktail.</div>
-
-	                  <div class="comments"><span>96 </span>COMMENTS</div>
-	                </div>
-	              </div>
-	              
-	            </div>
+	            {% endfor %}
 
 	          </div>
 	          <!-- Pagination -->

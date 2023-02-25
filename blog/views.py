@@ -17,8 +17,13 @@ def processKeywords(text):
 
 
 def home(request):
+
+	# the latest 2 artiles to be shown in the big tile
 	latest2 = liveArticles[:2]
 	
+	# the medium tile article of recent post 3rd article and on...
+	olderPosts = liveArticles[2:]
+
 	# Handling the newsletter form
 	error = None
 	if request.method == "POST":
@@ -39,6 +44,7 @@ def home(request):
 	"title": title,
 	"description": description,
 	"keywords": keywords,
+	"olderPosts": olderPosts,
 	}
 
 	return render(request, 'home.html', context)
@@ -49,6 +55,8 @@ def articlePage(request, slug):
 	title = article.title
 	description = article.meta_description
 	keywords = processKeywords(article.meta_keywords)
+	tag = article.tags.all()[0]
+	print(tag)
 
 	# Handling the newsletter form
 	error = None
@@ -62,7 +70,7 @@ def articlePage(request, slug):
 			error = "You have arleady Subscribed using this E-mail!"
 
 
-	context = {'article':article, 'title': title, 'description':description, 'keywords':keywords, 'error': error}
+	context = {'article':article, 'title': title, 'description':description, 'keywords':keywords, 'error': error, 'tag': tag}
 	
 	return render(request,'post.html', context)
 

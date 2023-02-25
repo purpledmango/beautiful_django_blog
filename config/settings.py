@@ -126,6 +126,7 @@ STATIC_URL = 'static/'
 # STATIC_ROOT = BASE_DIR/'static'
 STATICFILES_DIRS = [
     BASE_DIR/'static',
+    
 ]
 
 
@@ -164,3 +165,5 @@ GRAPPELLI_SWITCH_USER = True
 
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+SITE_ID = 1

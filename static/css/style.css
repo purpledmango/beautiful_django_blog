@@ -31,6 +31,7 @@ a{
 }
 
 
+
 hr{
 	border: solid 1px black;
 	width: 80%;
@@ -239,8 +240,12 @@ footer form button:hover{
 	text-decoration: underline;
 }
 .body__area p{
-	font-size: 1.75rem;
+	font-size: 1.89rem;
 }
+
+.body__area a{
+	color: var(--accent-color-orange);
+}	
 
 .paginator{
 	padding: 20px 0;
@@ -259,3 +264,7 @@ footer form button:hover{
 	font-family: var(--heading-font);
 }
 
+
+.accentedA{
+	color: var(--accent-color-orange);
+}
