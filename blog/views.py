@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from .forms import BlogPostCreateForm, UpdatePostForm
 from .models import Blog, EmailList
 from blog.defaults import keyWords, Title, Description
@@ -56,7 +57,16 @@ def articlePage(request, slug):
 	description = article.meta_description
 	keywords = processKeywords(article.meta_keywords)
 	tag = article.tags.all()[0]
-	print(tag)
+	
+	related = Blog.objects.all()
+	p = Paginator(related, 3)
+	page_num = request.GET.get('page')
+	page_obj = p.get_page(page_num)
+	
+
+	
+	# prev_page = 
+	# page_obj =  = pagination.get_page(page_number)
 
 	# Handling the newsletter form
 	error = None
@@ -70,7 +80,9 @@ def articlePage(request, slug):
 			error = "You have arleady Subscribed using this E-mail!"
 
 
-	context = {'article':article, 'title': title, 'description':description, 'keywords':keywords, 'error': error, 'tag': tag}
+	context = {'article':article, 'title': title, 'description':description,
+		'keywords':keywords, 'error': error,
+		'tag': tag, 'page_obj': page_obj}
 	
 	return render(request,'post.html', context)
 

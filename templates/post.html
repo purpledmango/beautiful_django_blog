@@ -35,9 +35,17 @@
 
     <div class="container center paginator">
 
-      <a href="#" class="button">Continue Reading</a>
+      <!-- <a href="#" class="button">Continue Reading</a> -->
 
-      <a href="#" class="button">Continue Reading</a>
+
+      {% for x in  page_obj %}
+      <a href="{% url 'article' x.slug %}" class="button">{{x.title}}</a>
+    
+
+      {% endfor %}
+      
+
+
 
       
     </div>

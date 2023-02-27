@@ -67,11 +67,11 @@
 	              <div class="padded center">
 	                <a href="{% url 'article' post.slug %}"><img src="{{post.thumbnail.url}}" alt="{{post.title}}" class="card-img responsive-img"></a>
 	                <div class="center article__meta">
-	                  <div class="tag"> FOOD</div>
-	                  <a href="{% url 'article' post.slug %}""><h3 class="title"> Have a Wonderful Weekend</h3></a>
-	                  <div class="description">12 links, including a lip-plumping balm that actually works and Tom Hank's two-ingredient cocktail.</div>
+	                  <div class="tag"> {{post.tags.all.0}}</div>
+	                  <a href="{% url 'article' post.slug %}""><h3 class="title">{{post.title}}</h3></a>
+	                  <div class="description">{{post.meta_description|slice:":30"}} ...</div>
 
-	                  <div class="comments"><span>96 </span>COMMENTS</div>
+	                  <!-- <div class="comments"><span>96 </span>COMMENTS</div> -->
 	                </div>
 	              </div>
 	            </div>
