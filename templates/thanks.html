@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block mainBody %}
+
+<div class="container center">
+	<h1>Thank You !</h1>
+
+	<p style="font-size: 2rem;
+		font-family: var(--body-font);
+		padding-bottom: 2.5rem;
+		"> We are glad to have you as a part of our news letter community. We will notify on any news an update about Mr. Oadn </p>
+	<a class="button" href="{% url 'home' %}" style="">Go to Home</a>
+	<div style="padding-top: 2.5rem;">
+	<img src="{% static 'img/thankyou.jpg' %}" class="responsive-img" alt="thankyou">
+	</div>
+
+</div>
+
+{% endblock %}

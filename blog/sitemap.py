@@ -6,7 +6,7 @@ class BlogPostSiteMap(Sitemap):
 
 	changefreq = "weekly"
 	priority = 0.8
-	protocol = "http"
+	protocol = "https"
 
 
 	def items(self):
@@ -16,4 +16,4 @@ class BlogPostSiteMap(Sitemap):
 		return reverse('article', args=[str(obj.slug)])
 
 	def lastmod(self, obj):
-		return obj.updated_at
+		return obj.created_at

@@ -23,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_ivzc7j!7hg%!%=tfhj6$ok(yi3$@yqufww(dn-44*61f97!o3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
 
 ALLOWED_HOSTS = ["*"]
 
@@ -31,6 +32,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'grappelli',
     'filebrowser',
     'django.contrib.admin',
@@ -42,11 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'tinymce',
     'blog',
-    'auditlog'
+    'auditlog',
+    'django_social_share'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,11 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-#STATIC_ROOT = BASE_DIR/'static'
-STATICFILES_DIRS = [
-    BASE_DIR/'static',
-    
-]
+STATIC_ROOT = BASE_DIR/'static'
+
 
 
 # MEDIA HANDLING
@@ -166,4 +167,3 @@ GRAPPELLI_SWITCH_USER = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-SITE_ID = 1

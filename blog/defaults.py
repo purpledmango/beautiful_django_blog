@@ -1,4 +1,4 @@
-Title = "Mr. Oadn, Just on a different note on life"
+Title = "A different aprrocah to Life and culture"
 
 Description = "Mr. Oadn, a community that encourages men to grab their life back and explore their full potentinal. And Focus on self care and improvement"
 

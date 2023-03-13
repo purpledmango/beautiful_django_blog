@@ -11,6 +11,25 @@
 
       </ul>
 
+      <ul class="left hide-on-med-and-down">
+        <li class="menu__item"><a href="{% url 'food' %}" class="black-text">Food</a></li>
+
+      </ul>
+
+      <ul class="left hide-on-med-and-down">
+        <li class="menu__item"><a href="{% url 'lifestyle' %}" class="black-text">Lifestyle</a></li>
+
+      </ul>
+
+      <ul class=" right hide-on-med-and-down">
+        <li class="menu__item"><a href="{% url 'newsLetterSignUp' %}" class="black-text">Newsletter</a></li>
+
+ 
+      <ul class=" right hide-on-med-and-down">
+        <li class="menu__item"><a href="{% url 'health' %}" class="black-text">Health</a></li>
+
+      </ul>
+
       <ul class="right hide-on-med-and-down">
         <li class="menu__item"><a href="{% url 'aboutUs' %}" class="black-text">About Us</a></li>
 
@@ -18,6 +37,10 @@
 
       <ul class="sidenav" id="mobile-menu">
         <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'food' %}">Food</a></li>
+        <li><a href="{% url 'health' %}">Health</a></li>
+        <li><a href="{% url 'food' %}">Lifestyle</a></li>
+        <li><a href="{% url 'lifestyle' %}">Newsletter</a></li>
         <li><a href="{% url 'aboutUs' %}">About Us</a></li>
       </ul>
 

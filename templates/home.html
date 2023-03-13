@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block mainBody %}
 	<section class="aescthetic">
 	  
@@ -19,19 +20,19 @@
 	        <div class="row">
 
 	       	<!-- CARD  -->
-	        {% for post in latest2 %}
+	        
 	        <div class="col s12 m12 l12">
 
 	            <div class="center">
-	              <a href="{% url 'article' post.slug %}"><img src="{{post.thumbnail.url}}" alt="{{post.title}}" class="card-img responsive-img"></a>
+	              <a href="{% url 'article' latestOne.slug %}"><img src="{{latestOne.thumbnail.url}}" alt="{{latestOne.title}}" class="card-img responsive-img"></a>
 	              <div class="center article__meta">
 	                <!-- <div class="tag"> FOOD</div> -->
 
 	                <div class="credits">
-	                  {{post.created_at|date:"F, d, Y"}} ● {{post.author_name}}
+	                  {{latestOne.created_at|date:"F, d, Y"}} ● {{latestOne.author_name}}
 	                </div>
-	                <a><h3 class="title">{{post.title}}</h3></a>
-	                <div class="description">{{post.meta_description|slice:":255"}} ...</div>
+	                <a><h1 class="title"style="font-size: 3.2rem;">{{latestOne.title}}</h1></a>
+	                <div class="description">{{latestOne.meta_description}}</div>
 
 	                <div class="row hide-on-med-and-down">
 	                  
@@ -40,7 +41,7 @@
 	                    </div>-->
 	                      <div class="right">
 	                        <div>
-	                          <a href="{% url 'article' post.slug %}" class="button">Continue Reading</a>
+	                          <a href="{% url 'article' latestOne.slug %}" class="button">Continue Reading</a>
 	                      </div>
 	                    </div>
 	                </div>
@@ -52,9 +53,78 @@
 
 	        </div>
 
-	        {% endfor %}
-
 	        <!-- END CARD -->
+	       	<!-- CARD2  -->
+	        
+	        <div class="col s12 m12 l12">
+
+	            <div class="center">
+	              <a href="{% url 'article' latestTwo.slug %}"><img src="{{latestTwo.thumbnail.url}}" alt="{{latestTwo.title}}" class="card-img responsive-img"></a>
+	              <div class="center article__meta">
+	                <!-- <div class="tag"> FOOD</div> -->
+
+	                <div class="credits">
+	                  {{latestTwo.created_at|date:"F, d, Y"}} ● {{latestTwo.author_name}}
+	                </div>
+	                <a><h2 class="title" style="font-size: 3.0rem;">{{latestTwo.title}}</h2></a>
+	                <div class="description">{{latestTwo.meta_description}}</div>
+
+	                <div class="row hide-on-med-and-down">
+	                  
+	                    <!-- <div class="left">
+	                      <div class="comments"><span>96 </span>COMMENTS</div>
+	                    </div>-->
+	                      <div class="right">
+	                        <div>
+	                          <a href="{% url 'article' latestTwo.slug %}" class="button">Continue Reading</a>
+	                      </div>
+	                    </div>
+	                </div>
+	              </div>
+
+	              <div class="seperator">
+	              	<hr class="hide-on-med-and-down block"></div>
+	            </div>
+
+	        </div>
+
+	        <!-- END CARD2 -->
+
+	       	<!-- CARD3  -->
+	        
+	        <div class="col s12 m12 l12">
+
+	            <div class="center">
+	              <a href="{% url 'article' latestThree.slug %}"><img src="{{latestThree.thumbnail.url}}" alt="{{latestThree.title}}" class="card-img responsive-img"></a>
+	              <div class="center article__meta">
+	                <!-- <div class="tag"> FOOD</div> -->
+
+	                <div class="credits">
+	                  {{latestThree.created_at|date:"F, d, Y"}} ● {{latestThree.author_name}}
+	                </div>
+	                <a><h3 class="title" style="font-size: 3rem;">{{latestThree.title}}</h3></a>
+	                <div class="description">{{latestThree.meta_description}}</div>
+
+	                <div class="row hide-on-med-and-down">
+	                  
+	                    <!-- <div class="left">
+	                      <div class="comments"><span>96 </span>COMMENTS</div>
+	                    </div>-->
+	                      <div class="right">
+	                        <div>
+	                          <a href="{% url 'article' latestThree.slug %}" class="button">Continue Reading</a>
+	                      </div>
+	                    </div>
+	                </div>
+	              </div>
+
+	              <div class="seperator">
+	              	<hr class="hide-on-med-and-down block"></div>
+	            </div>
+
+	        </div>
+
+	        <!-- END CARD3 -->
 
 	        <!-- END Large Card Sets -->
 
@@ -63,13 +133,14 @@
 	     
 	            {% for post in olderPosts %}
 
-	            <div class="col s12 m9 l4">
+	            <div class="col s12 m4 l3">
 	              <div class="padded center">
-	                <a href="{% url 'article' post.slug %}"><img src="{{post.thumbnail.url}}" alt="{{post.title}}" class="card-img responsive-img"></a>
+	                <a href="{% url 'article' post.slug %}">
+	                	<img src="{{post.thumbnail.url}}" alt="{{post.title}}" class="card-img responsive-img"></a>
 	                <div class="center article__meta">
 	                  <div class="tag"> {{post.tags.all.0}}</div>
-	                  <a href="{% url 'article' post.slug %}""><h3 class="title">{{post.title}}</h3></a>
-	                  <div class="description">{{post.meta_description|slice:":30"}} ...</div>
+	                  <a href="{% url 'article' post.slug %}"><h4 class="title">{{post.title}}</h4></a>
+	                  <p class="description">{{post.meta_description}} ...</p>
 
 	                  <!-- <div class="comments"><span>96 </span>COMMENTS</div> -->
 	                </div>
@@ -95,13 +166,7 @@
 
 	        <div class="container">
 	          
-	          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+	          
 	        </div>
 
 
@@ -116,7 +181,7 @@
 
 	        <div class="z-depth-1 ad_space container">
 
-	          <img class="responsive-img" src="img/img1.jpg">
+	          <img class="responsive-img" src="{% static 'img/logo-no-background.png' %}">
 
 	        </div>
 
@@ -124,71 +189,32 @@
 
 	        <div class="container center">
 
-	          <h4> Articles You Migh Like </h4>
+	          <h4> Discover More </h4>
 
 	          <div class="row">
 
+	          	{% for post in suggested %}
 	             <div class="col s12 m12 l12">
 	              <div class="padded center">
-	                <img src="img/img1.jpg" alt="" class="card-img responsive-img">
-	                <div class="center article__meta">
-	                  <div class="tag"> FOOD</div>
-	                  <h5 class="title"> Have a Wonderful Weekend</h5>
-	                  <div class="description">12 links, including a lip-plumping balm that actually works and Tom Hank's two-ingredient 
-	                  DSADASDAS ... <a href="#" style="color: var(--accent-color-orange)">Read more</a>
-	                </div>
+		              <a href="{% url 'article' post.slug %}">
+			            <img src="{{post.thumbnail.url}}" alt="{{post.title}}" class="card-img responsive-img">
+			        	</a>
+			                <div class="center article__meta">
+			                  <div class="tag">{{post.tags.all.0}}</div>
+			                  <h5 class="title">{{post.title}}</h5>
+			                  <div class="description">{{post.meta_description}} - Mr. Oadn {{post.tags.all.0}}<a href="{% url 'article' post.slug %}" style="color: var(--accent-color-orange);"> Read more</a>
+			                </div>
 
-	                </div>
+			                </div>
+			           
 	              </div>
 	            </div>
-	             <div class="col s12 m12 l12">
-	              <div class="padded center">
-	                <img src="img/img1.jpg" alt="" class="card-img responsive-img">
-	                <div class="center article__meta">
-	                  <div class="tag"> FOOD</div>
-	                  <h5 class="title"> Have a Wonderful Weekend</h5>
-	                  <div class="description">12 links, including a lip-plumping balm that actually works and Tom Hank's two-ingredient 
-	                  DSADASDAS ... <a href="#" style="color: var(--accent-color-orange)">Read more</a>
-	                </div>
 
-	                </div>
-	              </div>
-	            </div>
-	             <div class="col s12 m12 l12">
-	              <div class="padded center">
-	                <img src="img/img1.jpg" alt="" class="card-img responsive-img">
-	                <div class="center article__meta">
-	                  <div class="tag"> FOOD</div>
-	                  <h5 class="title"> Have a Wonderful Weekend</h5>
-	                  <div class="description">12 links, including a lip-plumping balm that actually works and Tom Hank's two-ingredient 
-	                  DSADASDAS ... <a href="#" style="color: var(--accent-color-orange)">Read more</a>
-	                </div>
-
-	                </div>
-	              </div>
-	            </div>
-	             <div class="col s12 m12 l12">
-	              <div class="padded center">
-	                <img src="img/img1.jpg" alt="" class="card-img responsive-img">
-	                <div class="center article__meta">
-	                  <div class="tag"> FOOD</div>
-	                  <h5 class="title"> Have a Wonderful Weekend</h5>
-	                  <div class="description">12 links, including a lip-plumping balm that actually works and Tom Hank's two-ingredient 
-	                  DSADASDAS ... <a href="#" style="color: var(--accent-color-orange)">Read more</a>
-	                </div>
-
-	                </div>
-	              </div>
-	            </div>
+	            {% endfor %}
+	   
 
 
 	          </div>
-	          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 	        </div>
 	        

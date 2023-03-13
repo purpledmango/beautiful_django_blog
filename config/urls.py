@@ -18,12 +18,7 @@ urlpatterns = [
     path('sitemap.xml/', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
     path('', include('blog.urls')),
 ]
-urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header = "Mr. Oadn"
-admin.site.site_title = "Mr. Oadn Admin Portal"
-admin.site.index_title = "Greetings from Mr. Oadn"
+if settings.DEBUG == True:
+    urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

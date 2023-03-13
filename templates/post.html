@@ -22,7 +22,42 @@
     </div>
 
 
+      <div class="hide-on-med-and-down" style="font-size: 2rem; position: fixed;">
+        Share on:
+        {% load social_share %}
+        {% post_to_facebook object_or_url "<i class='bx bxl-facebook'></i>"%}
+        
+        {% post_to_twitter "Hey! Check this out - {{object.title}}. Read more" object_or_url "<i class='bx bxl-twitter'></i>" %}
+        {% post_to_gplus object_or_url "<i class='bx bxl-google-plus' ></i>" %}
+      
+      </div>
     <div class="container body__area">
+      <div class="hide-on-med-and-up" style="font-size: 2rem;">
+        Share on:
+        <div class="row">
+        
+           <div class="col">
+            {% post_to_facebook object_or_url "<i class='bx bxl-facebook'></i>"%}
+          </div>
+
+          <div class="col">
+            {% post_to_twitter "Hey! Check this out - {{object.title}}. Read more" object_or_url "<i class='bx bxl-twitter'></i>" %}
+          </div>
+
+
+          <div class="col">
+            {% post_to_gplus object_or_url "<i class='bx bxl-google-plus' ></i>" %}
+          </div>
+
+    
+          <div class="col">
+            
+            {% post_to_linkedin object_or_url "<i class='bx bxl-linkedin' ></i>" %}
+          </div>
+
+
+        </div>
+    </div>
       <div class="container center">
         <img src="{{article.thumbnail.url}}" alt="{{article.thumbnail}}" class="responsive-img">
       </div>
@@ -31,26 +66,42 @@
       {{article.body|safe}}
       </p>
 
+        <p>Hope you enjoyed this Mr. Oadn's {{tag}} blog on - {{article.title}} 
     </div>
+<!-- Related Posts -->
+    <div>
 
-    <div class="container center paginator">
+      <h3 class="center"> You might Also Like ... </h3>
+      <hr>
 
-      <!-- <a href="#" class="button">Continue Reading</a> -->
+      <div class="row container">
+        {% for post in relatedPosts %}
+               <div class="col s12 m4 l3">
+                <div class="padded center">
+                  <a href="{% url 'article' post.slug %}">
+                  <img src="{{post.thumbnail.url}}" alt="{{post.title}}" class="card-img responsive-img">
+                </a>
+                      <div class="center article__meta">
+                        <div class="tag">{{post.tags.all.0}}</div>
+                        <h5 class="title">{{post.title}}</h5>
+                        <div class="description">{{post.meta_description}} - Mr. Oadn {{post.tags.all.0}}<a href="{% url 'article' post.slug %}" style="color: var(--accent-color-orange);"> Read more</a>
+                      </div>
 
-
-      {% for x in  page_obj %}
-      <a href="{% url 'article' x.slug %}" class="button">{{x.title}}</a>
-    
+                      </div>
+                 
+                </div>
+              </div>
 
       {% endfor %}
-      
-
-
-
+      </div>
       
     </div>
+
+<!-- End related Posts -->
 </section>
 
 <!-- End main body -->
 
 {% endblock %}
+
+        {% add_pinterest_script %}
