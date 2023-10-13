@@ -29,7 +29,10 @@ def home(request):
 	# the medium tile article of recent post 3rd article and on...
 	olderPosts = liveArticles[3:]
 	
-	suggested = olderPosts[3:len(olderPosts)-3]
+	if len(olderPosts) > 6:  # Check if there are at least 7 articles
+		suggested = olderPosts[3:len(olderPosts)-3]
+	else:
+		suggested = olderPosts 
 
 	# Handling the newsletter form
 	error = None
